@@ -25,12 +25,12 @@ function Homepage() {
   return (
     <Container maxW="xl" centerContent>
       <Box
-        d="flex"
+        display="flex"
         justifyContent="center"
-        p={3}
+        padding={3}
         bg="white"
-        w="100%"
-        m="40px 0 15px 0"
+        width="100%"
+        margin="40px 0 15px 0"
         borderRadius="lg"
         borderWidth="1px"
       >
@@ -38,7 +38,7 @@ function Homepage() {
           Talk-A-Tive
         </Text>
       </Box>
-      <Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
+      <Box bg="white" width="100%" padding={4} borderRadius="lg" borderWidth="1px">
         <Tabs isFitted variant="soft-rounded">
           <TabList mb="1em">
             <Tab>Login</Tab>
