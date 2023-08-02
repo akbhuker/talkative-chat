@@ -54,13 +54,14 @@ const server = app.listen(
 const io = socket(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["https://talkative-chat-rdiy.onrender.com"],
   },
 });
 
 io.on("connection", (socket) => {
   console.log("Connected to socket.io");
   socket.on("setup", (userData) => {
+    console.log('user connected')
     socket.join(userData._id);
     socket.emit("connected");
   });
