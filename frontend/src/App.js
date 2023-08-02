@@ -3,11 +3,6 @@ import Homepage from "./Pages/Homepage";
 import { Route } from "react-router-dom";
 import Chatpage from "./Pages/Chatpage";
 import ChatProvider from "./Context/ChatProvider";
-
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory()
-
 function App() {
   return (
     <ChatProvider>
