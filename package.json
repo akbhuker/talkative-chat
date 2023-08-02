@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "build": "npm i"
+    "dev": "node backend/server.js",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "build": "npm run build:frontend"
   },
   "keywords": [
     "mern",
