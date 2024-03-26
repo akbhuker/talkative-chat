@@ -85,8 +85,13 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.off("setup", () => {
-    console.log("USER DISCONNECTED");
-    socket.leave(userData._id);
+  // socket.off("setup", () => {
+  //   console.log("USER DISCONNECTED");
+  //   socket.leave(userData._id);
+  // });
+
+  socket.on("forceDisconnect", () => {
+    console.log("Disconnected from socket.io");
+    socket.disconnect();
   });
 });

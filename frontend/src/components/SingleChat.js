@@ -25,6 +25,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [socketConnected, setSocketConnected] = useState(false);
   const [typing, setTyping] = useState(false);
   const [istyping, setIsTyping] = useState(false);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
   const toast = useToast();
 
   const defaultOptions = {
@@ -110,6 +111,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     socket.on("connected", () => setSocketConnected(true));
     socket.on("typing", () => setIsTyping(true));
     socket.on("stop typing", () => setIsTyping(false));
+    return () => {
+      socket.emit("forceDisconnect");
+    };
 
     // eslint-disable-next-line
   }, []);
@@ -121,19 +125,27 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     // eslint-disable-next-line
   }, [selectedChat]);
 
+
+  useEffect(() => {
+    if (arrivalMessage && JSON.stringify(arrivalMessage) !== "{}") {
+      setMessages([arrivalMessage, ...messages]);
+    }
+  }, [arrivalMessage]);
+
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
-      if (
-        !selectedChatCompare || // if chat is not selected or doesn't match current chat
-        selectedChatCompare._id !== newMessageRecieved.chat._id
-      ) {
-        if (!notification.includes(newMessageRecieved)) {
-          setNotification([newMessageRecieved, ...notification]);
-          setFetchAgain(!fetchAgain);
-        }
-      } else {
-        setMessages([...messages, newMessageRecieved]);
-      }
+      // if (
+      //   !selectedChatCompare || // if chat is not selected or doesn't match current chat
+      //   selectedChatCompare._id !== newMessageRecieved.chat._id
+      // ) {
+      //   if (!notification.includes(newMessageRecieved)) {
+      //     setNotification([newMessageRecieved, ...notification]);
+      //     setFetchAgain(!fetchAgain);
+      //   }
+      // } else {
+      //   setMessages([...messages, newMessageRecieved]);
+      // }
+      setArrivalMessage(newMessageRecieved);
     });
   });
 
