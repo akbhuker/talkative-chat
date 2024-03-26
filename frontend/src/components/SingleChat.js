@@ -126,7 +126,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   useEffect(() => {
     if (arrivalMessage && JSON.stringify(arrivalMessage) !== "{}") {
-      setMessages([arrivalMessage, ...messages]);
+      setMessages([...messages,arrivalMessage ]);
     }
   }, [arrivalMessage]);
 
