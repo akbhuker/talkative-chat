@@ -118,11 +118,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(() => {
-    fetchMessages();
-
+  useEffect(async() => {
+    await fetchMessages();
     selectedChatCompare = selectedChat;
-    // eslint-disable-next-line
   }, [selectedChat]);
 
 
