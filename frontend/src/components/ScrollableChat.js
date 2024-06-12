@@ -19,22 +19,21 @@ const ScrollableChat = ({ messages }) => {
           <div style={{ display: "flex" }} key={m._id}>
             {(isSameSender(messages, m, i, user._id) ||
               isLastMessage(messages, i, user._id)) && (
-              <Tooltip label={m.sender.name} placement="bottom-start" hasArrow>
-                <Avatar
-                  mt="7px"
-                  mr={1}
-                  size="sm"
-                  cursor="pointer"
-                  name={m.sender.name}
-                  src={m.sender.pic}
-                />
-              </Tooltip>
-            )}
+                <Tooltip label={m.sender.name} placement="bottom-start" hasArrow>
+                  <Avatar
+                    mt="7px"
+                    mr={1}
+                    size="sm"
+                    cursor="pointer"
+                    name={m.sender.name}
+                    src={m.sender.pic}
+                  />
+                </Tooltip>
+              )}
             <span
               style={{
-                backgroundColor: `${
-                  m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
-                }`,
+                backgroundColor: `${m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
+                  }`,
                 marginLeft: isSameSenderMargin(messages, m, i, user._id),
                 marginTop: isSameUser(messages, m, i, user._id) ? 3 : 10,
                 borderRadius: "20px",
@@ -42,7 +41,15 @@ const ScrollableChat = ({ messages }) => {
                 maxWidth: "75%",
               }}
             >
-              {m.content}
+              {m.content} <span style={{
+                fontSize: '12px',
+                color: 'gray',
+                bottom: '2px',
+                right: '8px'
+              }}>
+                {new Date(m.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                {Array.isArray(m.readBy) && m.readBy.length > 0 ? ' \u2714' : ' \u2713\u2713'}
+              </span>
             </span>
           </div>
         ))}
