@@ -59,7 +59,6 @@ const GroupChatModal = ({ children }) => {
         },
       };
       const { data } = await axios.get(`/api/user?search=${search}`, config);
-      console.log(data);
       setLoading(false);
       setSearchResult(data);
     } catch (error) {
@@ -128,31 +127,32 @@ const GroupChatModal = ({ children }) => {
   return (
     <>
       <span onClick={onOpen}>{children}</span>
-
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader
-            fontSize="35px"
-            fontFamily="Work sans"
+            fontSize="18px"
+            fontFamily="'Press Start 2P', sans-serif"
             d="flex"
             justifyContent="center"
           >
             Create Group Chat
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody d="flex" flexDir="column" alignItems="center">
+          <ModalBody d="flex" flexDir="column" fontFamily="'Press Start 2P', sans-serif" alignItems="center">
             <FormControl>
               <Input
                 placeholder="Chat Name"
                 mb={3}
+                fontSize="13px"
                 onChange={(e) => setGroupChatName(e.target.value)}
               />
             </FormControl>
             <FormControl>
               <Input
-                placeholder="Add Users eg: John, Piyush, Jane"
+                placeholder="Add Users"
                 mb={1}
+                fontSize="13px"
                 onChange={(e) => handleSearch(e.target.value)}
               />
             </FormControl>
@@ -166,7 +166,6 @@ const GroupChatModal = ({ children }) => {
               ))}
             </Box>
             {loading ? (
-              // <ChatLoading />
               <div>Loading...</div>
             ) : (
               searchResult
@@ -180,8 +179,8 @@ const GroupChatModal = ({ children }) => {
                 ))
             )}
           </ModalBody>
-          <ModalFooter>
-            <Button onClick={handleSubmit} colorScheme="blue">
+          <ModalFooter fontFamily="'Press Start 2P', sans-serif" >
+            <Button onClick={handleSubmit} colorScheme="green" size='sm'>
               Create Chat
             </Button>
           </ModalFooter>

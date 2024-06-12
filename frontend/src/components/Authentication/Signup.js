@@ -95,7 +95,6 @@ const Signup = () => {
       });
       return;
     }
-    console.log(pics);
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
       data.append("file", pics);
@@ -129,7 +128,7 @@ const Signup = () => {
   };
 
   return (
-    <VStack spacing="5px">
+    <VStack spacing="18px" fontFamily="'Press Start 2P', sans-serif">
       <FormControl id="first-name" isRequired>
         <FormLabel>Name</FormLabel>
         <Input

@@ -22,7 +22,6 @@ app.use("/api/message", messageRoutes);
 // --------------------------deployment------------------------------
 
 const __dirname1 = path.resolve();
-console.log(__dirname1)
 
 if (process.env.NODE_ENV === "production") {
 

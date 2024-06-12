@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { useHistory,useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const ChatContext = createContext();
 
@@ -14,10 +14,7 @@ const ChatProvider = ({ children }) => {
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(userInfo)
     setUser(userInfo);
-
-
     if (!userInfo) {
       history.push('/')
     }

@@ -131,6 +131,7 @@ function SideDrawer() {
         width="100%"
         padding="5px 10px 5px 10px"
         borderWidth="5px"
+        fontFamily="'Press Start 2P', sans-serif"
       >
         <Tooltip label="Search Users to chat" hasArrow placement="bottom-end">
           <Button variant="ghost" onClick={onOpen}>
@@ -140,7 +141,10 @@ function SideDrawer() {
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work sans">
+        <Text
+          textShadow="2px 2px #FF0000, 4px 4px #0000FF"
+          color="#FFD700"
+        >
           Talk-A-Tive
         </Text>
         <div>
@@ -150,9 +154,9 @@ function SideDrawer() {
                 count={notification.length}
                 effect={Effect.SCALE}
               />
-              <BellIcon fontSize="2xl" m={1} />
+              <BellIcon fontSize="3xl" m={1} />
             </MenuButton>
-            <MenuList pl={2}>
+            <MenuList pl={2} fontSize="14px">
               {!notification.length && "No New Messages"}
               {notification.map((notif) => (
                 <MenuItem
@@ -180,10 +184,10 @@ function SideDrawer() {
             </MenuButton>
             <MenuList>
               <ProfileModal user={user}>
-                <MenuItem>My Profile</MenuItem>{" "}
+                <MenuItem fontSize="14px">My Profile</MenuItem>{" "}
               </ProfileModal>
               <MenuDivider />
-              <MenuItem onClick={logoutHandler}>Logout</MenuItem>
+              <MenuItem fontSize="14px" onClick={logoutHandler}>Logout</MenuItem>
             </MenuList>
           </Menu>
         </div>
@@ -192,10 +196,11 @@ function SideDrawer() {
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
+          <DrawerHeader fontFamily="'Press Start 2P', sans-serif" borderBottomWidth="1px">Search Users</DrawerHeader>
           <DrawerBody>
-            <Box d="flex" pb={2}>
+            <Box d="flex" pb={2} fontFamily="'Press Start 2P', sans-serif">
               <Input
+                fontSize="12px"
                 placeholder="Search by name or email"
                 mr={2}
                 value={search}
@@ -216,7 +221,7 @@ function SideDrawer() {
             {loadingChat && <Spinner ml="auto" d="flex" />}
           </DrawerBody>
         </DrawerContent>
-      </Drawer>
+      </Drawer >
     </>
   );
 }

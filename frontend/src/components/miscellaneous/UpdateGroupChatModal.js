@@ -212,7 +212,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
         <ModalContent>
           <ModalHeader
             fontSize="35px"
-            fontFamily="Work sans"
+            fontFamily="'Press Start 2P', sans-serif"
             d="flex"
             justifyContent="center"
           >
@@ -234,12 +234,16 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             <FormControl d="flex">
               <Input
                 placeholder="Chat Name"
+                fontSize="13px"
+                fontFamily="'Press Start 2P', sans-serif"
                 mb={3}
                 value={groupChatName}
                 onChange={(e) => setGroupChatName(e.target.value)}
               />
               <Button
                 variant="solid"
+                fontSize="13px"
+                fontFamily="'Press Start 2P', sans-serif"
                 colorScheme="teal"
                 ml={1}
                 isLoading={renameloading}
@@ -251,6 +255,8 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             <FormControl>
               <Input
                 placeholder="Add User to group"
+                fontSize="13px"
+                fontFamily="'Press Start 2P', sans-serif"
                 mb={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />
@@ -269,7 +275,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
             )}
           </ModalBody>
           <ModalFooter>
-            <Button onClick={() => handleRemove(user)} colorScheme="red">
+            <Button fontSize="13px" fontFamily="'Press Start 2P', sans-serif" onClick={() => handleRemove(user)} colorScheme="red">
               Leave Group
             </Button>
           </ModalFooter>

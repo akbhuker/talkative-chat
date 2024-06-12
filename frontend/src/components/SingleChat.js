@@ -118,7 +118,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     // eslint-disable-next-line
   }, []);
 
-  useEffect(async() => {
+  useEffect(async () => {
     await fetchMessages();
     selectedChatCompare = selectedChat;
   }, [selectedChat]);
@@ -126,7 +126,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   useEffect(() => {
     if (arrivalMessage && JSON.stringify(arrivalMessage) !== "{}") {
-      setMessages([...messages,arrivalMessage ]);
+      setMessages([...messages, arrivalMessage]);
     }
   }, [arrivalMessage]);
 
@@ -177,7 +177,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             pb={3}
             px={2}
             w="100%"
-            fontFamily="Work sans"
+            fontFamily="'Press Start 2P', sans-serif"
             d="flex"
             justifyContent={{ base: "space-between" }}
             alignItems="center"
@@ -262,7 +262,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       ) : (
         // to get socket.io on same page
         <Box d="flex" alignItems="center" justifyContent="center" h="100%">
-          <Text fontSize="3xl" pb={3} fontFamily="Work sans">
+          <Text fontSize="2xl" pb={3} fontFamily="'Press Start 2P', sans-serif">
             Click on a user to start chatting
           </Text>
         </Box>

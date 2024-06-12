@@ -8,6 +8,7 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
+import "@fontsource/press-start-2p";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
 import Login from "../components/Authentication/Login";
@@ -34,13 +35,18 @@ function Homepage() {
         borderRadius="lg"
         borderWidth="1px"
       >
-        <Text fontSize="4xl" fontFamily="Work sans">
+        <Text
+          fontSize="4xl"
+          fontFamily="'Press Start 2P', sans-serif"
+          textShadow="2px 2px #FF0000, 4px 4px #0000FF"
+          color="#FFD700"
+        >
           Talk-A-Tive
         </Text>
       </Box>
       <Box bg="white" width="100%" padding={4} borderRadius="lg" borderWidth="1px">
         <Tabs isFitted variant="soft-rounded">
-          <TabList mb="1em">
+          <TabList mb="1em" fontFamily="'Press Start 2P', sans-serif">
             <Tab>Login</Tab>
             <Tab>Sign Up</Tab>
           </TabList>

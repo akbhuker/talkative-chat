@@ -55,12 +55,13 @@ const MyChats = ({ fetchAgain }) => {
       width={{ base: "100%", md: "31%" }}
       borderRadius="lg"
       borderWidth="1px"
+      fontFamily="'Press Start 2P', sans-serif"
     >
       <Box
         pb={3}
         px={3}
-        fontSize={{ base: "28px", md: "30px" }}
-        fontFamily="Work sans"
+        fontSize={{ base: "20px", md: "16px" }}
+        fontFamily="'Press Start 2P', sans-serif"
         display="flex"
         width="100%"
         justifyContent="space-between"
@@ -71,7 +72,7 @@ const MyChats = ({ fetchAgain }) => {
           <Button
             display="flex"
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
-            rightIcon={<AddIcon />}
+          // rightIcon={<AddIcon />}
           >
             New Group Chat
           </Button>
@@ -86,6 +87,7 @@ const MyChats = ({ fetchAgain }) => {
         height="100%"
         borderRadius="lg"
         overflowY="hidden"
+        fontFamily="'Press Start 2P', sans-serif"
       >
         {chats ? (
           <Stack overflowY="scroll">
